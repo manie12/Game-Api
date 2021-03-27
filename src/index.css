@@ -1,5 +1,11 @@
+* ::after ::before{
+  box-sizing: border-box;
+  margin: 0em ;
+}
 body {
-  margin: 0;
+  background-color: #081221;
+  margin:  0em ;
+  padding: 0em 3em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
