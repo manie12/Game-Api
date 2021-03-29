@@ -5,10 +5,14 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: "#0e1a2b",
         height: '100vh',
         marginTop: '11em',
-        width: '120%',
         color: '#fcfcfc',
         [theme.breakpoints.down("md")]: {
-            marginTop: '30em'
+            marginTop: '0em',
+            width: '107%'
+        },
+        [theme.breakpoints.down("xs")]: {
+            marginTop: "1em",
+            width: '107%'
         }
 
     },
@@ -21,7 +25,11 @@ export const useStyles = makeStyles((theme) => ({
     },
     image: {
         backgroundColor: '#fcfcfc',
-        height: '100%'
+        height: '100%',
+        [theme.breakpoints.down("xs")]: {
+            height: '16vh'
+        }
+
     },
     mar: {
         margin: '1em'

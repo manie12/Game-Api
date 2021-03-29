@@ -8,15 +8,15 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Grid container spacing={5}>
-        <Grid item md={12} lg={3} >
+      <Grid container spacing={3}>
+        <Grid item lg={3} >
           <Filter />
         </Grid>
-        <Grid item md={12} lg={7}>
+        <Grid item lg={9}>
           <GameSingle />
         </Grid>
       </Grid>
-    </div>
+    </div >
   );
 }
 
