@@ -1,9 +1,10 @@
-import { Typography, TextField, FormControl, MenuItem, Select, Button, Grid } from '@material-ui/core';
 import React from 'react';
+import { Typography, TextField, FormControl, MenuItem, Select, Button, Grid } from '@material-ui/core';
 import { useStyles } from './Styles';
 
-export default function Filter() {
+export default function Filter({ Search, setSearch }) {
     const classes = useStyles();
+
     return (
         <div className={classes.filter}>
             <Grid container spacing={5} >
@@ -21,6 +22,8 @@ export default function Filter() {
                         label="Text String"
                         size="small"
                         className={classes.Input}
+                        value={Search}
+                        onChange={(e) => setSearch(e.target.value)}
                     />
 
                 </Grid>

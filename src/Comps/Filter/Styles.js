@@ -64,8 +64,8 @@ export const useStyles = makeStyles((theme) => ({
 
     },
     button: {
-        marginTop: '6em',
-        marginLeft: '7em',
+        marginTop: '0em',
+        marginLeft: '11.3em',
         backgroundColor: '#5692e8',
         [theme.breakpoints.down("sm")]: {
             textAlign: 'end',
@@ -80,8 +80,8 @@ export const useStyles = makeStyles((theme) => ({
         }
     },
     order: {
-        marginLeft: '2em',
-        width: '1005',
+        marginLeft: '0em',
+        width: '100%',
         [theme.breakpoints.down("xs")]: {
             marginLeft: "0em"
         }

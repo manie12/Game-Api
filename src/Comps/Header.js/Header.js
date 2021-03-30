@@ -1,7 +1,8 @@
-import React from 'react'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import { useStyles } from './Styles';
 
 export default function Header() {
@@ -14,12 +15,13 @@ export default function Header() {
                         VIDEO
                    </Typography>
 
-                    <Typography className={classes.typography} >
+                    <Typography component={Link} to="/" className={classes.typography} >
                         VIDEO  GAMES
                     </Typography>
-                    <Typography className={classes.typography1} >
+                    <Typography component={Link} to="contacts" className={classes.typography1} >
                         CONTACT
                     </Typography>
+
                 </Toolbar>
             </AppBar>
         </div>
