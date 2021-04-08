@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
@@ -8,7 +8,6 @@ import GameSingle from './Comps/GameTitle/GameSingle';
 import Contacts from './Comps/Contacts/Contacts';
 
 function App() {
-  const [Search, setSearch] = useState([]);
 
   return (
     <div className="App">
@@ -17,7 +16,7 @@ function App() {
         <Route exact path="/"  >
           <Grid container spacing={3}>
             <Grid item lg={3} >
-              <Filter Search={Search} setSearch={setSearch} />
+              <Filter />
             </Grid>
             <Grid item lg={9}>
               <GameSingle />

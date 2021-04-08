@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
     header: {
         width: '89%',
-        backgroundColor: '#081221',
+        backgroundColor: '#03080f',
+
         padding: '2em 0em ',
         [theme.breakpoints.down("md")]: {
             width: '100%'

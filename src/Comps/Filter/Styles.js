@@ -9,6 +9,12 @@ export const useStyles = makeStyles((theme) => ({
         marginLeft: '9.5em',
         padding: '1em 2em',
 
+        [theme.breakpoints.down("md")]: {
+            width: '107%',
+            marginLeft: '0em',
+            height: '30vh',
+
+        },
         [theme.breakpoints.down("sm")]: {
             width: '98%',
             marginLeft: '0em',
@@ -67,29 +73,49 @@ export const useStyles = makeStyles((theme) => ({
         marginTop: '0em',
         marginLeft: '11.3em',
         backgroundColor: '#5692e8',
-        [theme.breakpoints.down("sm")]: {
+        fontFamily: 'Montserrat',
+        [theme.breakpoints.down("md")]: {
             textAlign: 'end',
             marginTop: '3.2em',
-            marginLeft: '4.5em'
-        },
-        [theme.breakpoints.down("xs")]: {
-            marginTop: '1em',
-            width: '100%',
-            marginLeft: '0em'
+            marginLeft: '4.5em',
 
+            [theme.breakpoints.down("sm")]: {
+                textAlign: 'end',
+                marginTop: '3.2em',
+                marginLeft: '4.5em'
+            },
+            [theme.breakpoints.down("xs")]: {
+                marginTop: '1em',
+                width: '100%',
+                marginLeft: '0em'
+
+            }
         }
     },
     order: {
         marginLeft: '0em',
-        width: '100%',
-        [theme.breakpoints.down("xs")]: {
-            marginLeft: "0em"
-        }
+        width: '100%'
     },
-    font: {
-        fontSize: '.8em'
-    }
+    selectForm: {
+        marginTop: '-3em',
+        width: '100%',
+        color: '#fcfcfc'
+    },
+    select: {
+        width: '100%'
+    },
+    selectDate: {
+        backgroundColor: '#182c47',
+        width: '110%',
+        padding: '1em'
 
+    },
+    formControl: {
+        width: '100%',
+        backgroundColor: '#182c47',
+
+
+    }
 
 
 }));

@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
+
     gamePage: {
         backgroundColor: "#0e1a2b",
         height: '100vh',
@@ -12,7 +13,8 @@ export const useStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.down("xs")]: {
             marginTop: "1em",
-            width: '107%'
+            width: '107%',
+            position: 'relative'
         }
 
     },
@@ -24,7 +26,7 @@ export const useStyles = makeStyles((theme) => ({
         fontWeight: 'lighter'
     },
     image: {
-        backgroundColor: '#fcfcfc',
+        backgroundColor: 'black',
         height: '100%',
         [theme.breakpoints.down("xs")]: {
             height: '16vh'
@@ -35,8 +37,12 @@ export const useStyles = makeStyles((theme) => ({
         margin: '1em'
     },
     circle: {
-        borderRadius: '50%',
-        margin: 'auto ',
+
+        backgroundColor: '#5692e8',
+        [theme.breakpoints.down("xs")]: {
+            position: 'absolute',
+            left: '17em'
+        }
 
     }
 

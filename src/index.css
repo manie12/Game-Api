@@ -2,13 +2,12 @@
   box-sizing: border-box;
   margin: 0em ;
 }
-body {
-  background-color: #081221;
+body {  
+
+  background-color: #03080f;
   margin:  0em ;
   padding: 0em 1em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Mulish', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

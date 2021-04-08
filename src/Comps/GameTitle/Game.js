@@ -1,65 +1,83 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import moment from 'moment';
-import { Typography, Grid } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import { Typography, Grid, Avatar } from '@material-ui/core';
 import { useStyles } from './Styles';
 
-export default function Game({ Search, SetSearch }) {
+export default function Game() {
+    const GameData = useSelector((state) => state.Game);
+    console.log(GameData);
 
-    const [Game, setGame] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
 
-    useEffect(async () => {
-        const res = await fetch("https://public.connectnow.org.uk/applicant-test/");
-        const data = await res.json();
-        //console.log(data)
-        setGame(data)
-    }, [])
+            const res = await fetch("https://public.connectnow.org.uk/applicant-test/");
+            const data = await res.json();
+
+            // console.log(data);
+
+            localStorage.setItem("data", JSON.stringify(data));
+
+        }
+
+        fetchData();
+
+    }, []);
+
+
+    const getData = JSON.parse(localStorage.getItem("data"))
 
     const classes = useStyles();
+
+    const filteredGames = getData.filter((game) => {
+        return game.name.toLowerCase().indexOf(GameData.toLowerCase()) >= 0 || game.summary.includes(parseInt(GameData))
+    });
+
+
     return (
         <div className={classes.gamePage}>
 
-            { Game.map((value) => (
-                <>
-                    {value.filter((val) => {
+            { filteredGames && filteredGames.map((val) => (
 
-                        if (Search === "") {
-                            return val
-                        } else if (val.toLowerCase().includes(Search.toLowerCase()))
-                            return val
-                    })}
-                    <Grid key={val.id} container spacing={2} >
-                        <Grid item sm={2} lg={2} xs={12}>
-                            <div className={classes.image} >FFFFF</div>
+                < Grid key={val.id} container spacing={2} >
 
-                        </Grid>
+                    <Grid item sm={2} lg={2} xs={12}>
+                        <div className={classes.image}  ></div>
 
-                        <Grid container item sm={9} lg={9} xs={12} >
-                            <Grid item sm={12} lg={12}>
-                                <Typography variant='h6' >{val.name}</Typography>
-
-                            </Grid>
-
-                            <Grid item sm={12} lg={12} xs={12}>
-                                <Typography className={classes.typo1}>{moment(val.first_release_date).fromNow()}</Typography>
-
-                            </Grid>
-                            <Grid item sm={12} lg={12} xs={12}>
-                                <Typography className={classes.typo}>
-                                    {val.summary}
-                                </Typography>
-                            </Grid>
-
-
-
-                        </Grid>
-
-                        <Grid item sm={1} lg={1} xs={12} className={classes.circle} alignItems='center'>{val.rating}</Grid>
                     </Grid>
 
-                </>
+                    <Grid container item sm={9} lg={9} xs={12} >
+                        <Grid item sm={12} lg={12}>
+                            <Typography variant='h6' >{val.name}</Typography>
+
+                        </Grid>
 
 
-            ))}
+                        <Grid item sm={12} lg={12} xs={12}>
+                            <Typography className={classes.typo1}>Release Date:{moment(val.first_release_date).format('l')}
+                            </Typography>
+                        </Grid>
+                        <Grid item sm={12} lg={12} xs={12}>
+                            <Typography className={classes.typo}>
+                                {val.summary}
+                            </Typography>
+                        </Grid>
+
+
+
+                    </Grid>
+
+                    <Grid item sm={1} lg={1} xs={12} alignItems='center'> <Avatar className={classes.circle}>{val.rating}</Avatar>  </Grid>
+
+
+                </Grid>
+
+
+
+
+            )
+
+            )}
 
         </div >
     )

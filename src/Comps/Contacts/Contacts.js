@@ -10,7 +10,7 @@ export default function Contacts() {
     const classes = useStyles();
 
     return (
-        <div>
+        <div className='head'>
             <AppBar className={classes.header} position="fixed" color="primary">
                 <Toolbar className={classes.toolbar}>
                     <Typography className={classes.typography2} variant="h6">
