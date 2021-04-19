@@ -76,26 +76,27 @@ export default function Filter() {
                     </Grid>
                 ) : null
                 }
-                {Show ? (<Grid lg={12} md={4} className={classes.font} sm={4} xs={12}>
+                {Show ? (
+                    <Grid lg={12} gutterBottom md={4} className={classes.font} sm={4} xs={12}>
 
-                    <FormControl className={classes.formControl}>
-                        <InputLabel className={classes.selectForm} margin='dense' id="demo-simple-select-label">Minimum Score</InputLabel>
-                        <Select
-                            fullWidth
-                            className={classes.select}
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={Summary}
-                            onChange={(e) => setSummary(e.target.value)}
-                        >
-                            <MenuItem value={20}>29</MenuItem>
-                            <MenuItem value={40}>40</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
-                            <MenuItem value={80}>80</MenuItem>
-                        </Select>
-                    </FormControl>
+                        <FormControl className={classes.formControl}>
+                            <InputLabel className={classes.selectForm} margin='dense' id="demo-simple-select-label">Minimum Score</InputLabel>
+                            <Select
+                                fullWidth
+                                className={classes.select}
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={Summary}
+                                onChange={(e) => setSummary(e.target.value)}
+                            >
+                                <MenuItem value={20}>29</MenuItem>
+                                <MenuItem value={40}>40</MenuItem>
+                                <MenuItem value={60}>60</MenuItem>
+                                <MenuItem value={80}>80</MenuItem>
+                            </Select>
+                        </FormControl>
 
-                </Grid>
+                    </Grid>
                 ) : null
                 }
                 {ShowName ? (

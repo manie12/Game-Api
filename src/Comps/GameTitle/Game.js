@@ -6,12 +6,15 @@ import { useStyles } from './Styles';
 
 export default function Game() {
     const GameData = useSelector((state) => state.Game);
-    console.log(GameData);
+    //console.log(GameData);
+    const classes = useStyles();
 
     useEffect(() => {
+
         async function fetchData() {
 
             const res = await fetch("https://public.connectnow.org.uk/applicant-test/");
+
             const data = await res.json();
 
             // console.log(data);
@@ -27,10 +30,12 @@ export default function Game() {
 
     const getData = JSON.parse(localStorage.getItem("data"))
 
-    const classes = useStyles();
-
     const filteredGames = getData.filter((game) => {
-        return game.name.toLowerCase().indexOf(GameData.toLowerCase()) >= 0 || game.summary.includes(parseInt(GameData))
+
+        const gameFilter = game.name.toLowerCase().indexOf(GameData.toLowerCase()) >= 0;
+
+        return gameFilter;
+
     });
 
 

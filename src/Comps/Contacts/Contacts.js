@@ -7,6 +7,7 @@ import { useStyles } from './Styles';
 import Contact from './Contact';
 
 export default function Contacts() {
+
     const classes = useStyles();
 
     return (
