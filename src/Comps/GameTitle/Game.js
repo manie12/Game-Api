@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
 import moment from 'moment';
+
 import { useSelector } from 'react-redux';
+
 import { Typography, Grid, Avatar } from '@material-ui/core';
 import { useStyles } from './Styles';
 
 export default function Game() {
+
     const GameData = useSelector((state) => state.Game);
     //console.log(GameData);
     const classes = useStyles();
@@ -26,6 +29,9 @@ export default function Game() {
         fetchData();
 
     }, []);
+
+
+
 
 
     const getData = JSON.parse(localStorage.getItem("data"))
@@ -72,7 +78,7 @@ export default function Game() {
 
                     </Grid>
 
-                    <Grid item sm={1} lg={1} xs={12} alignItems='center'> <Avatar className={classes.circle}>{val.rating}</Avatar>  </Grid>
+                    <Grid item sm={12} lg={1} xs={12} alignItems='center'> <Avatar className={classes.circle}>{val.rating}</Avatar>  </Grid>
 
 
                 </Grid>
