@@ -71,7 +71,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     button: {
         marginTop: '0em',
-        marginLeft: '11.3em',
+        marginLeft: '4.3em',
         backgroundColor: '#5692e8',
         fontFamily: 'Montserrat',
         [theme.breakpoints.down("md")]: {

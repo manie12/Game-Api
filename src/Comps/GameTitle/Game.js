@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 
 import { useSelector } from 'react-redux';
@@ -7,7 +7,7 @@ import { Typography, Grid, Avatar } from '@material-ui/core';
 import { useStyles } from './Styles';
 
 export default function Game() {
-
+    const [dataItems, setDataItems] = useState([])
     const GameData = useSelector((state) => state.Game);
     //console.log(GameData);
     const classes = useStyles();
@@ -19,10 +19,10 @@ export default function Game() {
             const res = await fetch("https://public.connectnow.org.uk/applicant-test/");
 
             const data = await res.json();
-
+            setDataItems(data)
             // console.log(data);
 
-            localStorage.setItem("data", JSON.stringify(data));
+            // localStorage.setItem("data", JSON.stringify(data));
 
         }
 
@@ -34,9 +34,9 @@ export default function Game() {
 
 
 
-    const getData = JSON.parse(localStorage.getItem("data"))
+    // const getData = JSON.parse(localStorage.getItem("data"))
 
-    const filteredGames = getData.filter((game) => {
+    const filteredGames = dataItems.filter((game) => {
 
         const gameFilter = game.name.toLowerCase().indexOf(GameData.toLowerCase()) >= 0;
 
@@ -48,7 +48,7 @@ export default function Game() {
     return (
         <div className={classes.gamePage}>
 
-            { filteredGames && filteredGames.map((val) => (
+            {filteredGames && filteredGames.map((val) => (
 
                 < Grid key={val.id} container spacing={2} >
 
